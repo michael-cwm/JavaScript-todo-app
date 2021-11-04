@@ -34,19 +34,26 @@ body{
             margin: 0;
             padding: 0;
             li{
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
+                // -webkit-user-select: none;
+                // -moz-user-select: none;
+                // -ms-user-select: none;
+                // user-select: none;
                 width: 100%;
-                &:hover{
-                cursor:pointer;
-                background-color: aliceblue;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .closeButton{
+                    padding-right: 10px;
+                }
+                    &:hover{
+                    cursor:pointer;
+                    background-color: aliceblue;
             }
         }
         }
 }
 }
+
 
 
 
