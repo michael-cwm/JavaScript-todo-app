@@ -12,16 +12,16 @@
     <div id="Container">
         <div>
         <h2>To do</h2>
-        <input type="text"/>
+        <input type="text" id="myInput"/>
         <button onclick="newListItem()" class="addButton">Add</button>
         </div>
             <ul>
-                <li>Inlämning Javascript</li>
-                <li>Meditera</li>
-                <li>Handla</li>
-                <li>Plugga</li>
-                <li>Gymma</li>
-                <li>Krama Sebastian (no deadline)</li>
+                <li onclick="done(this)">Inlämning Javascript</li>
+                <li onclick="done(this)">Meditera</li>
+                <li onclick="done(this)">Handla</li>
+                <li onclick="done(this)">Plugga</li>
+                <li onclick="done(this)">Gymma</li>
+                <li onclick="done(this)">Krama Sebastian (no deadline)</li>
             </ul>
     </div>
 </body>

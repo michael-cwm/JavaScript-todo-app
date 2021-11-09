@@ -22,5 +22,24 @@ for(let i = 0; i < closeButton.length; i++){
         div.style.display = "none";
     }
 }
+
 }
 
+let checkedColor = "lightgreen";
+
+function done(e){
+    e.style.backgroundColor=checkedColor;
+    e.style.textDecoration="line-through";
+    e.setAttribute("onclick", "revert(this)");
+}
+
+function revert(e){
+    e.style.backgroundColor="";
+    e.style.textDecoration="";
+    e.setAttribute("onclick", "done(this)");
+}
+
+// newListItem(){
+//     let li = document.createElement("li");
+//     let inputValue = document.getElementById("myInput");
+// }
