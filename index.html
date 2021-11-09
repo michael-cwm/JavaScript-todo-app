@@ -12,10 +12,13 @@
     <div id="Container">
         <div>
         <h2>To do</h2>
-        <input type="text" id="myInput"/>
-        <button onclick="newListItem()" class="addButton">Add</button>
+        <div class="inputContainer">
+            <input type="text" id="myInput" placeholder="Write something..."/>
+            <button onclick="newListItem()" class="addButton">Add</button>
+        </div>
         </div>
             <ul id="theList">
+                <button onclick="sortingFunction()">Sort by a-z</button>
                 <li onclick="done(this)">Inlämning Javascript</li>
                 <li onclick="done(this)">Meditera</li>
                 <li onclick="done(this)">Handla</li>

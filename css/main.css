@@ -12,10 +12,19 @@ body h2 {
   height: 60px;
 }
 body #Container {
-  width: 50%;
+  width: 80%;
+}
+@media screen and (min-width: 1000px) {
+  body #Container {
+    width: 50%;
+  }
 }
 body #Container div {
-  height: 140px;
+  height: 120px;
+}
+body #Container div .inputContainer {
+  width: 100%;
+  height: 40%;
 }
 body #Container div input {
   width: 70%;
@@ -31,15 +40,31 @@ body #Container div input:focus {
   outline: none;
 }
 body #Container div button {
+  float: right;
   width: 27%;
   height: 34px;
   border-radius: 5px;
   border: 1px solid black;
 }
+@media screen and (min-width: 1000px) {
+  body #Container div button {
+    width: 27%;
+  }
+}
 body #Container ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+body #Container ul button {
+  border: none;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 20px;
+  border-bottom: 1px solid black;
 }
 body #Container ul li {
   width: 100%;

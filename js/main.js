@@ -3,7 +3,9 @@ window.onload = function (){
 }
 
 function start(){
+
 let myList = document.getElementsByTagName("li");
+
 
 // Lägger till en close-button för varje list-item
 for(let i = 0; i < myList.length; i++) {
@@ -13,6 +15,7 @@ for(let i = 0; i < myList.length; i++) {
     span.appendChild(textNode);
     myList[i].appendChild(span);
 }
+
 
 let closeButton = document.getElementsByClassName("closeButton");
 
@@ -65,8 +68,32 @@ function newListItem(){
         }
     }
 
-    
 
+}
+
+//Sorteringsfunktion
+function sortingFunction(){
+    let list, i, switching, listitems, shouldSwitch;
+    list = document.getElementById("theList");
+    switching = true;
+
+    while(switching){
+        switching = false;
+        listitems = list.getElementsByTagName("li");
+
+        for(i = 0; i < (listitems.length-1);i++){
+            shouldSwitch = false;
+            if(listitems[i].innerHTML.toLowerCase() > listitems[i+1].innerHTML.toLowerCase()){
+                shouldSwitch = true;
+                break;
+            }
+        }
+        listitems[i].parentNode.insertBefore(listitems[i+1],listitems[i]);
+        switching = true;
+    }
 
 
 }
+
+
+
