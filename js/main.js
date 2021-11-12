@@ -88,8 +88,10 @@ function sortingFunction(){
                 break;
             }
         }
+        if (shouldSwitch){
         listitems[i].parentNode.insertBefore(listitems[i+1],listitems[i]);
         switching = true;
+        }
     }
 
 
