@@ -5,84 +5,101 @@ body {
   align-items: center;
   height: 100vh;
   font-family: "Courier New", Courier, monospace;
-}
-body h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  height: 60px;
-}
-body #Container {
-  width: 80%;
-}
-@media screen and (min-width: 1000px) {
-  body #Container {
-    width: 50%;
-  }
-}
-body #Container div {
-  height: 120px;
-}
-body #Container div .inputContainer {
-  width: 100%;
-  height: 40%;
-}
-body #Container div input {
-  width: 70%;
-  border: 1px solid black;
-  height: 30px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  font-size: 15pt;
-  font-family: "Courier New", Courier, monospace;
-}
-body #Container div input:focus {
-  outline: none;
-}
-body #Container div button {
-  float: right;
-  width: 27%;
-  height: 34px;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-@media screen and (min-width: 1000px) {
-  body #Container div button {
-    width: 27%;
-  }
-}
-body #Container ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-body #Container ul button {
-  border: none;
-  background-color: white;
-  margin-bottom: 10px;
-  padding: 0px;
-  font-weight: bolder;
-  cursor: pointer;
-  font-size: 20px;
-  border-bottom: 1px solid black;
-}
-body #Container ul li {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-body #Container ul li .closeButton {
-  padding-right: 10px;
-  font-size: 12pt;
-}
-body #Container ul li:hover {
-  cursor: pointer;
-  background-color: aliceblue;
+  flex-direction: column;
 }
 
-.addButton {
+input {
+  margin-bottom: 50px;
+  width: 200px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 12pt;
   font-family: "Courier New", Courier, monospace;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+button {
+  height: 36px;
+  width: 70px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13pt;
+}
+
+div {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.someDiv {
+  height: 30px;
+  width: 90%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.someDiv p {
+  color: black;
+  width: 30%;
   font-weight: bold;
-  font-size: 15pt;
+  font-size: 18pt;
+  margin: 0px;
+  margin-right: 15px;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+li:hover {
+  cursor: pointer;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  margin-left: 3px;
+}
+
+p {
+  cursor: pointer;
+}
+
+.markAsDone {
+  background-color: aquamarine;
+}
+
+.remove {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  input {
+    width: 300px;
+  }
+
+  div {
+    width: 50%;
+  }
+
+  .someDiv {
+    width: 50%;
+  }
+  .someDiv p {
+    margin-right: 0px;
+  }
 }

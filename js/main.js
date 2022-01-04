@@ -1,101 +1,112 @@
-window.onload = function (){
-    start();
-}
 
-function start(){
-
-let myList = document.getElementsByTagName("li");
-
-
-// Lägger till en close-button för varje list-item
-for(let i = 0; i < myList.length; i++) {
-    let span = document.createElement("span");
-    let textNode = document.createTextNode("\u2573");
-    span.className = "closeButton";
-    span.appendChild(textNode);
-    myList[i].appendChild(span);
-}
-
-
-let closeButton = document.getElementsByClassName("closeButton");
-
-// Tar bort berört list-item vid tryck på close-button
-for(let i = 0; i < closeButton.length; i++){
-    closeButton[i].onclick = function(){
-        let div = this.parentElement;
-        div.style.display = "none";
-    }
-}
-
-}
-
-// Stryker över och ändrar färg på berört list-item
-let checkedColor = "lightgreen";
-
-function done(e){
-    e.style.backgroundColor=checkedColor;
-    e.style.textDecoration="line-through";
-    e.setAttribute("onclick", "revert(this)");
-}
-
-function revert(e){
-    e.style.backgroundColor="";
-    e.style.textDecoration="";
-    e.setAttribute("onclick", "done(this)");
-}
-
-let closeButton = document.getElementsByClassName("closeButton");
-
-// Lägger till ny list-item i listan samt funktionalitet för att ta bort och markera som klart
-function newListItem(){
-    let li = document.createElement("li");
-    li.setAttribute("onclick", "done(this)");
-    let inputValue = document.getElementById("myInput").value;
-    let text = document.createTextNode(inputValue);
-    li.appendChild(text);
-    document.getElementById("theList").appendChild(li);
-
-    let span = document.createElement("span");
-    let textNode = document.createTextNode("\u2573");
-    span.className = "closeButton";
-    span.appendChild(textNode);
-    li.appendChild(span);
-
-    for(let i = 0; i < closeButton.length; i++){
-        closeButton[i].onclick = function(){
-            let div = this.parentElement;
-            div.style.display = "none";
+class Todo{
+        constructor(description, done){
+            this.description = description;
+            this.done = done;
         }
-    }
-
-
 }
 
-//Sorteringsfunktion
-function sortingFunction(){
-    let list, i, switching, listitems, shouldSwitch;
-    list = document.getElementById("theList");
-    switching = true;
-
-    while(switching){
-        switching = false;
-        listitems = list.getElementsByTagName("li");
-
-        for(i = 0; i < (listitems.length-1);i++){
-            shouldSwitch = false;
-            if(listitems[i].innerHTML.toLowerCase() > listitems[i+1].innerHTML.toLowerCase()){
-                shouldSwitch = true;
-                break;
-            }
-        }
-        if (shouldSwitch){
-        listitems[i].parentNode.insertBefore(listitems[i+1],listitems[i]);
-        switching = true;
-        }
-    }
 
 
+
+let todo1 = new Todo("Plugga", false);
+let todo2 = new Todo("Meditera", false);
+let todo3 = new Todo("Gymma", false);
+let todo4 = new Todo("Krama Sebastian", false);
+
+let todoArray = [todo1, todo2, todo3, todo4];
+
+let myList = document.createElement("ul");
+
+
+createTodo();
+
+
+
+function createTodo (){
+
+            let myContainer = document.createElement("div");
+
+            myContainer.appendChild(myList);    
+
+            for(let i = 0; i < todoArray.length; i++){
+
+                let listItem = document.createElement("li");
+                let listSpan = document.createElement("span");
+                let listDelete = document.createElement("p");
+
+                listItem.innerHTML = todoArray[i].description;
+                listSpan.innerHTML = todoArray[i].done;
+                listDelete.innerHTML = "x";
+
+                myList.appendChild(listItem);
+                myList.appendChild(listSpan);
+                myList.appendChild(listDelete);
+
+                document.body.appendChild(myContainer);
+
+                listDelete.addEventListener("click", () => {
+                    listItem.classList.add("remove");
+                    listSpan.classList.add("remove");
+                    listDelete.classList.add("remove");
+                })
+
+                listItem.addEventListener("click", () => {
+                    listSpan.classList.toggle("markAsDone");
+                })
+
+
+                //togglar objektets "done" mellan true och false och ändrar done-status i HTML
+                listItem.addEventListener("click", () => {
+                    todoArray[i].done = !todoArray[i].done;
+                    if(todoArray[i].done === true){
+                        listSpan.innerHTML = "true";
+
+                    }else{
+                        listSpan.innerHTML = "false";
+                    }
+                })
+
+                
+                //förhindra sidan från att reloada vid submit
+                let form = document.getElementById("theForm");
+                function handleForm(event) { event.preventDefault(); } 
+                form.addEventListener('submit', handleForm);
+
+                console.log(todoArray);
+
+                }
+
+
+          
 }
+
+
+document.querySelector("button").addEventListener("click", addStuff);
+
+//funktionalitet för att lägga till en ny to-do
+function addStuff(){
+    myList.innerHTML = "";
+    let myInput = document.getElementById("inputStuff");
+    let todo = new Todo(myInput.value, false);
+    todoArray.push(todo);
+    console.log(todoArray);
+    myInput.value = "";
+    createTodo();
+    
+}
+
+
+
+
+
+
+
+
+
+
+    
+
 
 
 

@@ -5,27 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do</title>
-    <script src="js/main.js"></script>
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-    <div id="Container">
-        <div>
-        <h2>To do</h2>
-        <div class="inputContainer">
-            <input type="text" id="myInput" placeholder="Write something..."/>
-            <button onclick="newListItem()" class="addButton">Add</button>
-        </div>
-        </div>
-            <ul id="theList">
-                <button onclick="sortingFunction()">Sort by a-z</button>
-                <li onclick="done(this)">Inlämning Javascript</li>
-                <li onclick="done(this)">Meditera</li>
-                <li onclick="done(this)">Handla</li>
-                <li onclick="done(this)">Plugga</li>
-                <li onclick="done(this)">Gymma</li>
-                <li onclick="done(this)">Krama Sebastian (no deadline)</li>
-            </ul>
+    <form id="theForm">
+    <input type="text" id="inputStuff" placeholder="Add a new to do...">
+    <button>Add</button>
+    </form>
+    <div class="someDiv">
+        <p>To do</p>
+        <p>Done?</p>
     </div>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
